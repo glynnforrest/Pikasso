@@ -34,4 +34,14 @@ class GDAdapterTest extends \PHPUnit_Framework_TestCase {
 		$this->assertEquals(225, $adapter->getHeight());
 	}
 
+	public function testSaveJpeg() {
+		$adapter = new GDAdapter(TEST_JPEG_FILE);
+		$adapter->setHeight(225)->setWidth(300);
+		$file = TEST_JPEG_FILE . '.small';
+		$adapter->save($file);
+		$this->assertTrue(file_exists($file));
+		@unlink($file);
+	}
+
+
 }

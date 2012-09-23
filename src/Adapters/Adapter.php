@@ -36,7 +36,7 @@ abstract class Adapter {
 	/**
 	 * Set the width of the image.
 	 * This will not make any changes to the image until save() is called.
-	 * @param type $width
+	 * @param int $width
 	 * @return \Pikasso\Adapters\Adapter
 	 */
 	public function setWidth($width) {
@@ -47,12 +47,22 @@ abstract class Adapter {
 	/**
 	 * Set the height of the image.
 	 * This will not make any changes to the image until save() is called.
-	 * @param type $height
+	 * @param int $height
 	 * @return \Pikasso\Adapters\Adapter
 	 */
 	public function setHeight($height) {
 		$this->height = $height;
 		return $this;
 	}
+
+	/**
+	 * Save the image.
+	 * @param string $filename Filename to save the image as.
+	 * If no filename is supplied, the original file will be overwritten.
+	 * @param int $format The format used to save the image.
+	 * If no type is supplied, the original image format will be used.
+	 * Formats are defined in \Pikasso\Pikasso.
+	 */
+	abstract public function save($filename = null, $format = null);
 
 }
