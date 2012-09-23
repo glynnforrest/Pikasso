@@ -11,6 +11,10 @@ use Pikasso\PikassoException;
  **/
 class Pikasso {
 
+	const FORMAT_JPEG = 1;
+	const FORMAT_PNG = 2;
+	const FORMAT_GIF = 3;
+
 	/**
 	 * Pikasso should not be instantiated directly.
 	 * Instead call Pikasso::open()
