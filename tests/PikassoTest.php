@@ -12,14 +12,8 @@ require_once __DIR__ . '/bootstrap.php';
  */
 class PikassoTest extends \PHPUnit_Framework_TestCase {
 
-	protected static $jpeg_file;
-
-	public function __construct() {
-		self::$jpeg_file = __DIR__ . '/jackie-chan.jpg';
-	}
-
 	public function testOpenReturnsAdapter() {
-		$this->assertTrue(Pikasso::open(self::$jpeg_file) instanceof Adapter);
+		$this->assertTrue(Pikasso::open(TEST_JPEG_FILE) instanceof Adapter);
 	}
 
 	public function testOpenThrowsExceptionOnFakePath() {

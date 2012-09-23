@@ -25,7 +25,7 @@ class Pikasso {
 	 */
 	public static function open($path) {
 		if(!file_exists($path)) {
-			throw new PikassoException('Unable to open image file {$file}');
+			throw new PikassoException("Unable to open image $path");
 		}
 		return new GDAdapter($path);
 	}

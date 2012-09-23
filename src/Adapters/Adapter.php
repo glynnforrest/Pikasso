@@ -8,7 +8,9 @@ namespace Pikasso\Adapters;
  **/
 abstract class Adapter {
 
-	public function __construct($path) {
-	}
+	abstract public function __construct($path);
 
+	abstract public function getWidth();
+
+	abstract public function getHeight();
 }

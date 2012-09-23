@@ -1,7 +1,6 @@
 <?php
 
 function autoload($class) {
-	echo $class;
 	$class = ltrim($class, '\\');
 	$class = str_replace('Pikasso\\', 'src/', $class);
 	require __DIR__ . '/../' .
@@ -9,3 +8,5 @@ function autoload($class) {
 }
 
 spl_autoload_register('autoload');
+
+define('TEST_JPEG_FILE', __DIR__ . '/jackie-chan.jpg');
