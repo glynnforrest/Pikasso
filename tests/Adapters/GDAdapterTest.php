@@ -22,4 +22,16 @@ class GDAdapterTest extends \PHPUnit_Framework_TestCase {
 		$this->assertEquals(450, $adapter->getHeight());
 	}
 
+	public function testSetWidth() {
+		$adapter = new GDAdapter(TEST_JPEG_FILE);
+		$this->assertTrue($adapter->setWidth(300) instanceof GDAdapter);
+		$this->assertEquals(300, $adapter->getWidth());
+	}
+
+	public function testSetHeight() {
+		$adapter = new GDAdapter(TEST_JPEG_FILE);
+		$this->assertTrue($adapter->setHeight(225) instanceof GDAdapter);
+		$this->assertEquals(225, $adapter->getHeight());
+	}
+
 }

@@ -33,4 +33,26 @@ abstract class Adapter {
 		return $this->height ?: $this->info[1];
 	}
 
+	/**
+	 * Set the width of the image.
+	 * This will not make any changes to the image until save() is called.
+	 * @param type $width
+	 * @return \Pikasso\Adapters\Adapter
+	 */
+	public function setWidth($width) {
+		$this->width = $width;
+		return $this;
+	}
+
+	/**
+	 * Set the height of the image.
+	 * This will not make any changes to the image until save() is called.
+	 * @param type $height
+	 * @return \Pikasso\Adapters\Adapter
+	 */
+	public function setHeight($height) {
+		$this->height = $height;
+		return $this;
+	}
+
 }
