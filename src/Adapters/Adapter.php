@@ -2,6 +2,8 @@
 
 namespace Pikasso\Adapters;
 
+use Pikasso\Pikasso;
+
 /**
  * Adapter
  * @author Glynn Forrest me@glynnforrest.com
@@ -16,7 +18,6 @@ abstract class Adapter {
 	public function __construct($filename) {
 		$this->filename = $filename;
 		$this->info = getimagesize($filename);
-		$this->width = imagesx(imagecreatefromjpeg($filename));
 	}
 
 	/**
@@ -53,6 +54,15 @@ abstract class Adapter {
 	public function setHeight($height) {
 		$this->height = $height;
 		return $this;
+	}
+
+	/**
+	 * Get the current image format.
+	 * If the format has been modified, the original format will not be returned.
+	 * @return int Pikasso format constant
+	 */
+	public function getFormat() {
+		return Pikasso::FORMAT_JPEG;
 	}
 
 	/**
