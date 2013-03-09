@@ -12,5 +12,10 @@
             "name": "Glynn Forrest",
             "email": "me@glynnforrest.com"
         }
-    ]
+    ],
+	"autoload": {
+        "psr-0": {
+			"Pikasso": "/src"
+        }
+    }
 }
