@@ -14,6 +14,7 @@ abstract class Adapter {
 	protected $info;
 	protected $width;
 	protected $height;
+	protected $format;
 
 	public function __construct($filename) {
 		$this->filename = $filename;
@@ -64,6 +65,16 @@ abstract class Adapter {
 	public function getFormat() {
 		return Pikasso::FORMAT_JPEG;
 	}
+
+	/**
+	 * Set the format for the current image.
+	 * This will not make any changes to the image until save() is called.
+	 *
+	 */
+	public function setFormat($format) {
+		$this->format = $format;
+	}
+
 
 	/**
 	 * Save the image.
