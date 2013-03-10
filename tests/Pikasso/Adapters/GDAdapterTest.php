@@ -2,10 +2,10 @@
 
 namespace Pikasso\Adapters;
 
+require_once(__DIR__ . '/../../bootstrap.php');
+
 use Pikasso\Adapters\GDAdapter;
 use Pikasso\Pikasso;
-
-require_once __DIR__ . '/../bootstrap.php';
 
 /**
  * GDAdapterTest
@@ -47,6 +47,12 @@ class GDAdapterTest extends \PHPUnit_Framework_TestCase {
 	public function testGetFormat() {
 		$adapter = new GDAdapter(TEST_JPEG_FILE);
 		$this->assertEquals(Pikasso::FORMAT_JPEG, $adapter->getFormat());
+	}
+
+	public function testSetFormat() {
+		$adapter = new GDAdapter(TEST_JPEG_FILE);
+		$this->assertTrue($adapter->setFormat(Pikasso::FORMAT_PNG) instanceof GDAdapter);
+		$this->assertEquals(Pikasso::FORMAT_PNG, $adapter->getFormat());
 	}
 
 }

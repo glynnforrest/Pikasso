@@ -2,9 +2,9 @@
 
 namespace Pikasso;
 
-use Pikasso\Adapters\Adapter;
+require_once(__DIR__ . '/../bootstrap.php');
 
-require_once __DIR__ . '/bootstrap.php';
+use Pikasso\Adapters\Adapter;
 
 /**
  * PikassoTest
@@ -17,8 +17,11 @@ class PikassoTest extends \PHPUnit_Framework_TestCase {
 	}
 
 	public function testOpenThrowsExceptionOnFakePath() {
+		$this->assertEquals(3, 4);
 		$this->setExpectedException('\\Pikasso\\PikassoException');
 		Pikasso::open('dummy');
 	}
+
+
 
 }
