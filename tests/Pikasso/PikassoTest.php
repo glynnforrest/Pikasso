@@ -17,7 +17,6 @@ class PikassoTest extends \PHPUnit_Framework_TestCase {
 	}
 
 	public function testOpenThrowsExceptionOnFakePath() {
-		$this->assertEquals(3, 4);
 		$this->setExpectedException('\\Pikasso\\PikassoException');
 		Pikasso::open('dummy');
 	}
