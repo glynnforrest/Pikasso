@@ -19,6 +19,19 @@ abstract class Adapter {
 	public function __construct($filename) {
 		$this->filename = $filename;
 		$this->info = getimagesize($filename);
+		/* getimagesize returns something like this:
+		Array
+        (
+            [0] => width
+            [1] => height
+            [2] => ?
+            [3] => width="<width>" height="<height>"
+            [bits] => 8
+            [channels] => 3
+            [mime] => image/jpeg
+            ) */
+        // Set the format of the image from this information
+		$this->setFormatFromMimeType($this->info['mime']);
 	}
 
 	/**
@@ -63,7 +76,7 @@ abstract class Adapter {
 	 * @return int Pikasso format constant
 	 */
 	public function getFormat() {
-		return Pikasso::FORMAT_JPEG;
+		return $this->format;
 	}
 
 	/**
@@ -73,8 +86,27 @@ abstract class Adapter {
 	 */
 	public function setFormat($format) {
 		$this->format = $format;
+		return $this;
 	}
 
+    /**
+     * Set the format for the current image, using the mime type
+     * output of getimagesize.
+     */
+	protected function setFormatFromMimeType($type) {
+		switch ($type) {
+		case 'image/jpeg':
+			$format = Pikasso::FORMAT_JPEG;
+			break;
+		case 'image/png':
+			$format = Pikasso::FORMAT_PNG;
+			break;
+		default:
+			$format = null;
+			break;
+		}
+		$this->setFormat($format);
+	}
 
 	/**
 	 * Save the image.
