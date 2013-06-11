@@ -5,4 +5,7 @@ php:
   - "5.4"
   - "5.3"
 
-before_script: phpenv config-add travis-config.ini
+before_script:
+  - wget http://getcomposer.org/composer.phar
+  - php composer.phar install
+  - phpenv config-add travis-config.ini
