@@ -24,7 +24,7 @@ abstract class Adapter {
         (
             [0] => width
             [1] => height
-            [2] => ?
+            [2] => IMAGETYPE_<TYPE> (an int)
             [3] => width="<width>" height="<height>"
             [bits] => 8
             [channels] => 3
