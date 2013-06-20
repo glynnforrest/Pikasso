@@ -21,7 +21,7 @@ composer.json file:
 
 	{
 		"require": {
-			"glynnforrest/Pikasso": "*"
+			"glynnforrest/pikasso": "*"
 		}
 	}
 
