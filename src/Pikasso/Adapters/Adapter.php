@@ -30,8 +30,7 @@ abstract class Adapter {
             [channels] => 3
             [mime] => image/jpeg
             ) */
-        // Set the format of the image from this information
-		$this->setFormatFromMimeType($this->info['mime']);
+		$this->format =  $this->info[2];
 	}
 
 	/**

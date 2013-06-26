@@ -11,9 +11,14 @@ use Pikasso\PikassoException;
  **/
 class Pikasso {
 
-	const FORMAT_JPEG = 1;
-	const FORMAT_PNG = 2;
-	const FORMAT_GIF = 3;
+	/**
+	 * Php has around 17 IMAGETYPE_ constants.
+	 * Not all of these are supported by Pikasso. The types that are
+	 * supported are defined here.
+	 */
+	const FORMAT_GIF = IMAGETYPE_GIF;
+	const FORMAT_JPEG = IMAGETYPE_JPEG;
+	const FORMAT_PNG = IMAGETYPE_PNG;
 
 	/**
 	 * Pikasso should not be instantiated directly.

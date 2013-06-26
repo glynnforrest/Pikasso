@@ -38,10 +38,13 @@ class GDAdapterTest extends \PHPUnit_Framework_TestCase {
 	public function testSaveJpeg() {
 		$adapter = new GDAdapter(TEST_JPEG_FILE);
 		$adapter->setHeight(225)->setWidth(300);
-		$file = TEST_JPEG_FILE . '.small';
-		$adapter->save($file);
-		$this->assertTrue(file_exists($file));
-		@unlink($file);
+		$small_file = TEST_JPEG_FILE . '.small';
+		$adapter->save($small_file);
+		$this->assertTrue(file_exists($small_file));
+		$small_adapter = new GDAdapter($small_file);
+		$this->assertEquals(300, $small_adapter->getWidth());
+		$this->assertEquals(225, $small_adapter->getHeight());
+		@unlink($small_file);
 	}
 
 	public function testGetFormat() {
