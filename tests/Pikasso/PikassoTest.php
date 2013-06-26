@@ -14,6 +14,7 @@ class PikassoTest extends \PHPUnit_Framework_TestCase {
 
 	public function testOpenReturnsAdapter() {
 		$this->assertTrue(Pikasso::open(TEST_JPEG_FILE) instanceof Adapter);
+		$this->assertTrue(Pikasso::open(TEST_PNG_FILE) instanceof Adapter);
 	}
 
 	public function testOpenThrowsExceptionOnFakePath() {
